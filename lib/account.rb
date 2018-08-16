@@ -1,4 +1,7 @@
+require 'printer'
+
 class Account 
+  include Printer
 
   attr_reader :balance
 
@@ -12,6 +15,10 @@ class Account
 
   def withdraw(amount)
     @balance -= amount
+  end
+
+  def view_statement
+    print_statement("This is the statement")
   end
 
 end

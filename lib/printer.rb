@@ -1,7 +1,7 @@
 module Printer
 
-  def print_statment(item)
-    
+  def print_statement(item)
+    item
   end
 
 end
