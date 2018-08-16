@@ -4,10 +4,17 @@ describe Account do
 
   let(:my_account) { Account.new(50) }
 
+  describe "#new" do
+      describe ".statement"
+        it "starts as an array with heading titles" do
+          expect(my_account.statement).to eq([["Date", "Amount", "Balance"]])
+        end
+    end
+
   describe '#deposit' do
     it { is_expected.to respond_to(:deposit).with(1).argument }
 
-    it "should increase #balance by amount" do 
+    it "will increase #balance by amount" do 
       expect { my_account.deposit(50) }.to change { my_account.balance }.by (+50) 
     end
 
