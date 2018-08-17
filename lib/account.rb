@@ -1,4 +1,5 @@
-require 'printer'
+require_relative 'printer'
+require 'date'
 
 class Account 
   include Printer
@@ -11,11 +12,15 @@ class Account
   end
 
   def deposit(amount)
+    date = DateTime.now.strftime("%d/%m/%y")
     @balance += amount
+    @statement << [date, "+£#{amount}", "£#{@balance}"]
   end
 
   def withdraw(amount)
+    date = DateTime.now.strftime("%d/%m/%y")
     @balance -= amount
+    @statement << [date, "-£#{amount}", "£#{@balance}"]
   end
 
   def view_statement
